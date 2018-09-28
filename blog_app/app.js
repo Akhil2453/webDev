@@ -94,17 +94,18 @@ app.put("/blogs/:id", function(req, res){
         if(err){
             res.redirect("/");
         } else {
-            res.redirect("/blogs" + req.params.id);
+            res.redirect("/blogs/" + req.params.id);
         }
     });
 });
 
 //DESTROY route
 app.delete("/blogs/:id", function(req,res){
-    Blog.findByIdAndRemove(req.params.id,function(err){
+    Blog.findByIdAndRemove(req.params.id,function(err, blog){
         if(err){
             res.redirect("/blogs");
         } else {
+            blog.remove();
             res.redirect("/blogs");
         }
     });
