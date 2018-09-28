@@ -64,6 +64,16 @@ app.post("/blogs", function(req, res){
     });
 });
 
+//SHOW route
+app.get("/blogs/:id", function(req, res){
+    Blog.findById(req.param.id, function(err, findBlog){
+        if (err){
+            console.log(err);
+        } else {
+            res.render("show", {blog : findBlog});
+        }
+    })
+})
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Blog Sever Running-------------");
