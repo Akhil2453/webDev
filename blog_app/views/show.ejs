@@ -18,6 +18,16 @@
                     </div>
                 </div>
             </div>
+            <a class="ui blue icon button" href="/blogs/<%=blog._id%>/edit">
+                <i class="edit icon"></i>
+                Edit
+            </a>
+            <form id="delete" action="/blogs/<%blog._id%>?_method=DELETE" method="POST">
+                <button class="ui red icon button">
+                    <i class="eraser icon"></i>
+                    Delete
+                </button>
+            </form>
         </div>
     </div>
     

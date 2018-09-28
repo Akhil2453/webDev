@@ -107,8 +107,8 @@ app.delete("/blogs/:id", function(req,res){
         } else {
             res.redirect("/blogs");
         }
-    })
-})
+    });
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Blog Sever Running-------------");
