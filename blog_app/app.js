@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyP.urlencoded({extended : true}));
 
-mongoose.connect("mongodb://localhost:27017/blogApp");
+mongoose.connect("mongodb://localhost:27017/blogApp", { useNewUrlParser: true });
 
 
 
