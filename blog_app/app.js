@@ -30,11 +30,23 @@ var Blog = mongoose.model("Blog", blogSchema);
 //     body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 // });
 
+// Create home page get request
 app.get("/", function(req, res){
     res.redirect("/blogs");
 });
 
-
+//INDEX route
+app.get("/blogs", function(req, res){
+    //fetch info from DB
+    Blog.find({}, function(err, blogs){
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("index", {blogs : blogs});
+        }
+    });
+    
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Blog Sever Running-------------");
