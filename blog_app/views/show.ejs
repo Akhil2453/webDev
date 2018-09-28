@@ -1,6 +1,6 @@
 <% include ./partials/header %>
 
-    <div class="ui main text contai>ner segment">
+    <div class="ui main text container segment" style="margin-top: 7em;">
         <div class="ui huge header">
             <%=blog.title%>
         </div>
@@ -11,11 +11,13 @@
                     <div class="meta">
                         <span><%= blog.created.toDateString() %></span>
                     </div>
+                    <hr>
                     <div class="description">
                         <p>
                             <%- blog.body %>
                         </p>
                     </div>
+                    <hr>
                 </div>
             </div>
             <a class="ui blue icon button" href="/blogs/<%=blog._id%>/edit">
