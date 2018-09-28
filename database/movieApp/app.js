@@ -5,6 +5,10 @@ var express = require("express"),
 app.set("view engine", "ejs");
 
 //Home page(Search page in this case)
+app.get("/", function(req,res){
+    res.redirect("search");
+});
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
