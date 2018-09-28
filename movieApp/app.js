@@ -1,17 +1,17 @@
-var express = require("express"),
-    app = express(),
-    request = require("request");
+var express = require("express");
+var app = express();
+var request = require("request");
     
 app.set("view engine", "ejs");
 
 //Home page(Search page in this case)
 app.get("/", function(req,res){
-    res.redirect("search");
+    res.render("search");
 });
 
 //Display page for search results
-app.get("/results", function(req,res){
-   var query = res.query.search;
+app.get("/display", function(req,res){
+   var query = req.query.search;
    var url = "http://omdbapi.com/s?=" + query + "&apikey=thewdb";
    
    request(url, function(error, response, body){
@@ -21,6 +21,8 @@ app.get("/results", function(req,res){
        }
    })
 });
+
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Sever has Started!!!!") ;
