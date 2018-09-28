@@ -20,6 +20,9 @@ var blogSchema = new mongoose.Schema ({
     }
 });
 
+//CREATE Databse model
+var Blog = mongoose.model("Blog", blogSchema);
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
